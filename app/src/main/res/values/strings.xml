@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">RV Demo</string>
+    <string name="fab_content_desc">Add Task</string>
+    <string name="delte_all">Delete All</string>
+    <string name="add">Add</string>
+    <string name="task_importance">Task Importance</string>
+    <string name="task_descrtiption">Task Descrtiption</string>
+    <string name="task_name">Task Name</string>
+
+    <string-array name="importance_array">
+        <item>Low</item>
+        <item>Normal</item>
+        <item>High</item>
+    </string-array>
+
+</resources>

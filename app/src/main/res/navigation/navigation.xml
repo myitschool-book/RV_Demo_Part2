@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    app:startDestination="@id/tasksListFragment">
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="ru.samsung.itschool.rvdemo.AddTaskFragment"
+        android:label="Add New Task">
+        <action
+            android:id="@+id/action_addTaskFragment_to_tasksListFragment"
+            app:destination="@id/tasksListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTaskFragment"
+        android:name="ru.samsung.itschool.rvdemo.EditTaskFragment"
+        android:label="Edit Task">
+        <action
+            android:id="@+id/action_editTaskFragment_to_tasksListFragment"
+            app:destination="@id/tasksListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tasksListFragment"
+        android:name="ru.samsung.itschool.rvdemo.TasksListFragment"
+        android:label="Tasks List">
+        <action
+            android:id="@+id/action_tasksListFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_tasksListFragment_to_editTaskFragment"
+            app:destination="@id/editTaskFragment" />
+    </fragment>
+</navigation>
