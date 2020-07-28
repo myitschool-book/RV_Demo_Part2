@@ -30,7 +30,7 @@ public class EditTaskFragment extends Fragment {
         setHasOptionsMenu(true);
         binding.setLifecycleOwner(this);
         taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
-        taskViewModel.getTask(5);
+        taskViewModel.getTask(EditTaskFragmentArgs.fromBundle(getArguments()).getTaskId());
         binding.setTaskViewModel(taskViewModel);
 
         taskViewModel.task.observe(getViewLifecycleOwner(), task -> {
@@ -60,7 +60,7 @@ public class EditTaskFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.save_task) {
             taskViewModel.task.getValue().setTaskName(binding.editTaskName.getText().toString());
-            taskViewModel.task.getValue().setTaskDiscription(binding.editTaskDescription.getText().toString());
+            taskViewModel.task.getValue().setTaskDescription(binding.editTaskDescription.getText().toString());
             taskViewModel.task.getValue().setTaskImportance(binding.importanceSpinner.getSelectedItemPosition());
             taskViewModel.updateTask();
             return true;

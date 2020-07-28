@@ -6,6 +6,7 @@
     <string name="task_importance">Task Importance</string>
     <string name="task_descrtiption">Task Descrtiption</string>
     <string name="task_name">Task Name</string>
+    <string name="task_status">Task status</string>
 
     <string-array name="importance_array">
         <item>Low</item>

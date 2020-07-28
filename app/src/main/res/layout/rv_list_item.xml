@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="task"
+            type="ru.samsung.itschool.rvdemo.database.Task" />
+        <variable
+            name="clickListener"
+            type="ru.samsung.itschool.rvdemo.ItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(task)}">
+
+        <TextView
+            android:id="@+id/taskNametextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="24sp"
+            android:text="@{task.taskName}"
+            app:layout_constraintEnd_toStartOf="@+id/taskStatusImageView"
+            app:layout_constraintStart_toEndOf="@+id/taskImpImageView"
+            app:layout_constraintTop_toTopOf="@+id/taskImpImageView"
+            tools:text="Task Name" />
+
+        <TextView
+            android:id="@+id/taskDescrTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{task.taskDescription}"
+            app:layout_constraintEnd_toStartOf="@+id/taskStatusImageView"
+            app:layout_constraintStart_toEndOf="@+id/taskImpImageView"
+            app:layout_constraintTop_toBottomOf="@+id/taskNametextView"
+            tools:text="Task Description" />
+
+        <ImageView
+            android:id="@+id/taskImpImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/task_importance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_looks_one_60"
+            app:taskImpImage="@{task}" />
+
+        <ImageView
+            android:id="@+id/taskStatusImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/task_status"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_check_box_60"
+            app:taskStatusImage="@{task}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

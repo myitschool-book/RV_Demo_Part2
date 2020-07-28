@@ -47,7 +47,7 @@
                 android:hint="@string/task_descrtiption"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
                 tools:layout_editor_absoluteX="2dp"
-                android:text="@{taskViewModel.task.taskDiscription}" />
+                android:text="@{taskViewModel.task.taskDescription}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

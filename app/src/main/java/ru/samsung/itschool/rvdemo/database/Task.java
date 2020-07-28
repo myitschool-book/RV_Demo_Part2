@@ -1,6 +1,7 @@
 package ru.samsung.itschool.rvdemo.database;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -20,15 +21,15 @@ public class Task {
     @NonNull
     private String taskName;
 
-    private String taskDiscription;
+    private String taskDescription;
 
     private int taskStatus;
 
     private int taskImportance;
 
-    public Task(@NonNull String taskName, String taskDiscription, int taskStatus, int taskImportance) {
+    public Task(@NonNull String taskName, String taskDescription, int taskStatus, int taskImportance) {
         this.taskName = taskName;
-        setTaskDiscription(taskDiscription);
+        setTaskDescription(taskDescription);
         setTaskStatus(taskStatus);
         setTaskImportance(taskImportance);
     }
@@ -49,13 +50,25 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public String getTaskDiscription() {
-        return taskDiscription;
+    public String getTaskDescription() {
+        return taskDescription;
     }
 
-    public void setTaskDiscription(String taskDiscription) {
-        if (taskDiscription == null) { taskDiscription = ""; }
-        this.taskDiscription = taskDiscription;
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (this == obj) return true;
+        if (!obj.getClass().equals(this.getClass())) return false;
+        Task that = (Task) obj;
+        return this.getId() == that.getId() &&
+                this.getTaskStatus() == that.getTaskStatus() &&
+                this.getTaskImportance() == that.getTaskImportance() &&
+                this.getTaskName().equals(that.getTaskName()) &&
+                this.getTaskDescription().equals(that.getTaskDescription());
+    }
+
+    public void setTaskDescription(String taskDescription) {
+        if (taskDescription == null) { taskDescription = ""; }
+        this.taskDescription = taskDescription;
     }
 
     public int getTaskStatus() {

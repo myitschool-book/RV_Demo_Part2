@@ -14,6 +14,9 @@
         android:id="@+id/editTaskFragment"
         android:name="ru.samsung.itschool.rvdemo.EditTaskFragment"
         android:label="Edit Task">
+        <argument
+            android:name="taskId"
+            app:argType="long" />
         <action
             android:id="@+id/action_editTaskFragment_to_tasksListFragment"
             app:destination="@id/tasksListFragment" />
